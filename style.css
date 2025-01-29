@@ -1,0 +1,372 @@
+/* Resetando margens e padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos gerais */
+body {
+    background-image: url('imgs/background.jpg'); /* Caminho da imagem */
+            background-size: cover; /* A imagem cobre toda a tela */
+            background-position: center; /* A imagem fica centralizada */
+            background-repeat: no-repeat; /* A imagem não se repete */
+            color: white;
+}
+
+/* Cabeçalho */
+header {
+    background-color: #242323;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    align-items: center;
+}
+
+header .logo img {
+    height: 40px;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+}
+
+header nav ul li {
+    margin-left: 20px;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+header nav ul li a:hover {
+    color: #f4f4f4;
+    text-decoration: underline;
+}
+
+/* Carrossel */
+.carrossel-container {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto;
+    overflow: hidden;
+}
+
+.carrossel {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carrossel-item {
+    width: 100%;
+    flex-shrink: 0;
+}
+
+.carrossel img {
+    width: 100%;
+    height: 500px;
+    border-radius: 8px;
+    position: center;
+
+}
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    font-size: 2rem;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+/* Produtos */
+.produtos {
+    display: flex;
+    flex-wrap: wrap; /* Permite que os produtos se ajustem */
+    justify-content: space-between; /* Distribui os produtos no espaço */
+    padding: 20px;
+    gap: 20px; /* Espaçamento entre os produtos */
+}
+
+.produto {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 100%; /* Inicialmente ocupando toda a largura disponível */
+    max-width: 250px; /* Max width para garantir que eles não ultrapassem esse tamanho */
+    margin: 15px 0; /* Espacamento entre os produtos */
+    transition: transform 0.3s ease-in-out;
+    color: black;
+}
+
+.produto.destaque {
+    border: 2px solid #ff6347; /* Destaque para o primeiro produto */
+    background-color: #fff5e6;
+}
+
+.produto:hover {
+    transform: scale(1.05);
+}
+
+.produto img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.preco {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.avaliacoes span {
+    margin-right: 5px;
+}
+
+.comprar-btn {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.comprar-btn:hover {
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Efeitos de transição */
+.comprar-btn:hover {
+    transform: scale(1.1);
+}
+
+/* Comentários */
+#comentario-form textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    resize: vertical;
+}
+
+#comentario-form button {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#comentario-form button:hover {
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Rodapé */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    margin-top: 30px;
+}
+
+/* Responsividade para telas pequenas */
+@media (max-width: 768px) {
+    .produtos {
+        flex-direction: column; /* Coloca os produtos em coluna em telas menores */
+        align-items: center;
+    }
+
+    .produto {
+        width: 80%; /* Em telas menores, os produtos ocupam 80% da largura */
+        max-width: 400px; /* Ajusta o máximo de largura */
+    }
+}
+
+/* Responsividade para telas muito pequenas (smartphones) */
+@media (max-width: 4080px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    header nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-top: 10px;
+    }
+
+    header nav ul li {
+        margin-left: 0;
+        margin-bottom: 10px;
+    }
+
+    .carrossel-container {
+        max-width: 100%;
+    }
+}
+.produtos-lista {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.produto img {
+    height: 150px;
+    object-fit: cover;
+}
+.produtos-lista {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px; /* Espaço entre os itens */
+    justify-content: center;
+}
+
+.produto {
+    width: 200px; /* Largura fixa para todos os produtos */
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.produto img {
+    width: 100%; /* Ajusta a imagem para ocupar toda a largura do container */
+    height: 150px; /* Altura fixa */
+    object-fit: cover; /* Corta ou ajusta a imagem proporcionalmente para preencher o espaço */
+    border-radius: 4px;
+}
+.carrinho-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    font-size: 18px;
+    color: orange;
+    font-weight: bold;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+
+.carrinho-link i {
+    font-size: 24px;
+    margin-right: 5px;
+}
+
+.carrinho-link:hover {
+    color: darkorange;
+}
+/* Seção de Sobre */
+.sobre {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-family: 'Roboto', sans-serif; /* Fonte mais moderna */
+}
+
+.sobre h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #333;
+    font-family: 'Montserrat', sans-serif; /* Fonte para o título */
+}
+
+.sobre p {
+    font-size: 18px;
+    margin-bottom: 30px;
+    color: #555;
+    line-height: 1.8;
+    max-width: 800px; /* Controla a largura do texto */
+    font-family: 'Roboto', sans-serif; /* Fonte do texto */
+}
+
+.sobre h2 {
+    font-size: 28px;
+    margin-top: 40px;
+    color: #333;
+    font-family: 'Montserrat', sans-serif; /* Fonte para subtítulos */
+}
+
+.sobre ul {
+    list-style-type: none;
+    margin-top: 20px;
+    padding-left: 0;
+}
+
+.sobre ul li {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #555;
+    font-family: 'Roboto', sans-serif; /* Fonte para lista */
+}
+
+/* Estilos de links no conteúdo */
+.sobre a {
+    color: #ff7f00;
+    text-decoration: none;
+}
+
+.sobre a:hover {
+    text-decoration: underline;
+}
+
+/* Estilo para dispositivos móveis */
+@media (max-width: 768px) {
+    .sobre {
+        padding: 20px;
+    }
+
+    .sobre h1 {
+        font-size: 30px;
+    }
+
+    .sobre h2 {
+        font-size: 24px;
+    }
+
+    .sobre ul li {
+        font-size: 16px;
+    }
+}
+/* Produto em Destaque */
+.produto.destaque {
+    border: 2px solid #fff; /* Altere a cor da borda para laranja (um tom mais suave) */
+    background-color: #fff; /* Retire o fundo amarelado */
+
+}
